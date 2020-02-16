@@ -6,18 +6,20 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
+import java.util.List;
+
 @Data
 @ToString
 @AllArgsConstructor
 @Document
-public class Application {
+public class Release {
 
     @Id
     private String id;
     private String name;
     private String description;
-    private String owner;
-
-
+    private List<Ticket> tickets;
+    private LocalDate releaseDate;
 
 }

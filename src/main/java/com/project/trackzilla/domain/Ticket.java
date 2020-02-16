@@ -10,14 +10,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @ToString
 @AllArgsConstructor
 @Document
-public class Application {
+public class Ticket {
 
     @Id
     private String id;
-    private String name;
+    private String title;
     private String description;
-    private String owner;
-
-
+    private String appId;
+    private String status;
 
 }
