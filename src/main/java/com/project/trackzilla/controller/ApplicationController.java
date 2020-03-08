@@ -4,10 +4,7 @@ import com.project.trackzilla.domain.Application;
 import com.project.trackzilla.service.ApplicationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -30,11 +27,16 @@ public class ApplicationController {
                 HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<Application> getById(@NotNull @RequestParam("id") final String id){
+    @GetMapping("/{id}")
+    public ResponseEntity<Application> getById(@NotNull @PathVariable("id") final String id){
         return new ResponseEntity<>(applicationService.getById(id).orElse(new Application()),
                 HttpStatus.OK);
 
+    }
+
+    @GetMapping("/name/{name}")
+    public ResponseEntity<List<Application>> findByName(@PathVariable("name") final String name){
+        return new ResponseEntity<>(applicationService.findByName(name), HttpStatus.OK);
     }
 
 

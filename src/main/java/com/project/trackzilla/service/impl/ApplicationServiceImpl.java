@@ -28,5 +28,9 @@ public class ApplicationServiceImpl implements ApplicationService {
         return applicationRepository.findById(id);
     }
 
+    @Override
+    public List<Application> findByName (String name){
+        return applicationRepository.findByName(name);
+    }
 
 }

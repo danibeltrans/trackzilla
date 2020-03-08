@@ -11,5 +11,6 @@ public interface ApplicationService {
 
     Optional<Application> getById (String id);
 
+    List<Application> findByName (String name);
 
 }
