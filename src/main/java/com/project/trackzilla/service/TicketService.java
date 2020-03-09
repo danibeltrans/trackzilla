@@ -9,4 +9,6 @@ public interface TicketService {
     List<Ticket> getAll();
 
     List<Ticket> findByStatus( String status);
+
+    Long findAllByCustomQueryAndStream(String status);
 }

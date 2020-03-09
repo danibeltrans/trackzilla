@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -30,4 +31,10 @@ public class TicketServiceImpl implements TicketService {
         return this.ticketRepository.findByStatus(status);
     }
 
+
+    public Long findAllByCustomQueryAndStream(String status){
+        Stream<Ticket> stream = ticketRepository.findAllByCustomQueryAndStream(status);
+        Long count = stream.count();
+        return count;
+    }
 }
